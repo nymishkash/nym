@@ -1,29 +1,32 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Experience from "@/components/sections/Experience";
-import Projects from "@/components/sections/Projects";
-import Skills from "@/components/sections/Skills";
-import Contact from "@/components/sections/Contact";
-
-const Scene = dynamic(() => import("@/components/canvas/Scene"), {
-  ssr: false,
-});
+import { AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import Nav from "@/components/shell/Nav";
+import ParallaxBackground from "@/components/shell/ParallaxBackground";
+import HomeView from "@/components/views/HomeView";
+import WorkView from "@/components/views/WorkView";
+import ProjectsView from "@/components/views/ProjectsView";
+import ContactView from "@/components/views/ContactView";
+import ViewShell from "@/components/shell/ViewShell";
+import { getViewMeta, type ViewId } from "@/lib/views";
 
 export default function Home() {
+  const [view, setView] = useState<ViewId>("home");
+  const accent = getViewMeta(view).accent;
+
   return (
     <>
-      <Scene />
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
+      <ParallaxBackground accent={accent} />
+      <AnimatePresence mode="wait">
+        <ViewShell key={view}>
+          {view === "home" && <HomeView onNavigate={setView} />}
+          {view === "work" && <WorkView />}
+          {view === "projects" && <ProjectsView />}
+          {view === "contact" && <ContactView />}
+        </ViewShell>
+      </AnimatePresence>
+      <Nav active={view} onChange={setView} />
     </>
   );
 }

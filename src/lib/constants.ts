@@ -2,7 +2,7 @@ export const PERSONAL = {
   name: "Nymish",
   fullName: "Nymish Kashivishwanath",
   tagline: "Full-Stack Engineer",
-  subtitle: "Building the future with AI and distributed systems",
+  subtitle: "Building AI agents - and the workflows that run them at scale.",
   email: "reachnymish@gmail.com",
   location: "Bengaluru, India",
   github: "https://github.com/nymishkash",
@@ -84,38 +84,60 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    name: "WageWizard",
-    description: "AI Payroll Assistant",
+    name: "regex-builder",
+    description: "RL env for regex from NL",
     longDescription:
-      "AI payroll assistant handling HR workflows — employees, leave, wages — via chat and voice. Built with Node.js + Next.js.",
-    tech: ["Node.js", "Next.js", "OpenAI", "TypeScript"],
-    github: "https://github.com/nymishkash/wagewizard-frontend",
+      "An RL environment where agents learn to translate plain-English descriptions into working regex. Built for the Meta × Scaler OpenEnv hackathon.",
+    tech: ["Python", "PyTorch", "Docker", "RL"],
+    github: "https://github.com/nymishkash/regex-builder-openenv",
     accent: "#6366f1",
     featured: true,
   },
   {
-    name: "bot99",
-    description: "Intelligent Bot Platform",
-    longDescription: "A configurable bot platform built with JavaScript.",
-    tech: ["JavaScript", "Node.js"],
-    github: "https://github.com/nymishkash/bot99",
+    name: "wagewizard",
+    description: "AI payroll assistant",
+    longDescription:
+      "AI payroll assistant handling HR workflows - employees, leave, wages - via chat and voice. Node.js + Next.js + OpenAI.",
+    tech: ["Node.js", "Next.js", "OpenAI", "TypeScript"],
+    github: "https://github.com/nymishkash/wagewizard-frontend",
     accent: "#a855f7",
+    featured: true,
   },
   {
-    name: "Renderground",
-    description: "Full-Stack Rendering Service",
-    longDescription: "A full-stack rendering application with separate frontend and backend services.",
-    tech: ["JavaScript", "React", "Node.js"],
-    github: "https://github.com/nymishkash/renderground-frontend",
+    name: "smartcloud",
+    description: "Secrets manager + SDK",
+    longDescription:
+      "Secrets-manager platform with AES-256-GCM encryption, row-level security, and audit logs. Ships with a zero-dep TypeScript SDK and CLI.",
+    tech: ["Next.js", "Supabase", "TypeScript"],
+    github: "https://github.com/nymishkash/smartcloud",
     accent: "#06b6d4",
   },
   {
-    name: "CLI Image Editor",
-    description: "Command-Line Image Processor",
-    longDescription: "A command-line image editor built in Java for efficient batch image processing.",
-    tech: ["Java", "CLI"],
-    github: "https://github.com/nymishkash/cli-image-editor-java",
+    name: "renderground",
+    description: "React canvas drawing tool",
+    longDescription:
+      "React canvas app for shape composition - rectangles, text, snap grid - with a Node/Express backend that persists and exports canvases as HTML.",
+    tech: ["React", "Node.js", "Express"],
+    github: "https://github.com/nymishkash/renderground-frontend",
     accent: "#f59e0b",
+  },
+  {
+    name: "bot99",
+    description: "Hotel booking chatbot",
+    longDescription:
+      "Hotel-booking chatbot on top of Google Gemini - turns natural-language requests into structured room reservations. Express + React.",
+    tech: ["Express", "React", "Gemini"],
+    github: "https://github.com/nymishkash/bot99",
+    accent: "#ec4899",
+  },
+  {
+    name: "python-web-scraper",
+    description: "DevOps CI/CD pipeline",
+    longDescription:
+      "Python scraper wrapped in a security-first CI and Kubernetes CD pipeline. SCA, SAST, DAST, and promotion-gated delivery end-to-end.",
+    tech: ["Python", "Docker", "Kubernetes"],
+    github: "https://github.com/nymishkash/python-web-scraper",
+    accent: "#10b981",
   },
 ];
 

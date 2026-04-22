@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, inter } from "@/lib/fonts";
-import SmoothScroll from "@/components/providers/SmoothScroll";
-import CustomCursor from "@/components/ui/CustomCursor";
 import GrainOverlay from "@/components/ui/GrainOverlay";
-import AuroraBackground from "@/components/ui/AuroraBackground";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -44,12 +41,8 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} antialiased bg-bg text-fg`}
       >
-        <SmoothScroll>
-          <AuroraBackground />
-          {children}
-          <GrainOverlay />
-          <CustomCursor />
-        </SmoothScroll>
+        {children}
+        <GrainOverlay />
       </body>
     </html>
   );

@@ -1,19 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { motion } from "framer-motion";
+import type { ElementType } from "react";
 
 interface TextRevealProps {
   text: string;
-  as?: keyof React.JSX.IntrinsicElements;
+  as?: ElementType;
   className?: string;
   splitBy?: "word" | "char";
   staggerDelay?: number;
   delay?: number;
-  trigger?: boolean;
 }
 
 export default function TextReveal({
@@ -21,73 +17,53 @@ export default function TextReveal({
   as: Tag = "div",
   className = "",
   splitBy = "word",
-  staggerDelay = 0.03,
+  staggerDelay = 0.04,
   delay = 0,
-  trigger = true,
 }: TextRevealProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const elements = containerRef.current.querySelectorAll(".reveal-item");
-
-    if (trigger) {
-      gsap.fromTo(
-        elements,
-        { y: "110%", rotateX: -80, opacity: 0 },
-        {
-          y: "0%",
-          rotateX: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: staggerDelay,
-          delay,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 85%",
-            end: "bottom 20%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    } else {
-      gsap.fromTo(
-        elements,
-        { y: "110%", rotateX: -80, opacity: 0 },
-        {
-          y: "0%",
-          rotateX: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: staggerDelay,
-          delay,
-          ease: "power3.out",
-        }
-      );
-    }
-
-    return () => {
-      ScrollTrigger.getAll().forEach((st) => {
-        if (st.trigger === containerRef.current) st.kill();
-      });
-    };
-  }, [text, staggerDelay, delay, trigger]);
-
   const items = splitBy === "word" ? text.split(" ") : text.split("");
 
+  const container = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: staggerDelay,
+        delayChildren: delay,
+      },
+    },
+  };
+
+  const child = {
+    hidden: { y: "110%", rotateX: -80, opacity: 0 },
+    visible: {
+      y: "0%",
+      rotateX: 0,
+      opacity: 1,
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    },
+  };
+
+  const MotionTag = motion.create(Tag as ElementType);
+
   return (
-    // @ts-expect-error dynamic tag
-    <Tag ref={containerRef} className={`${className}`} style={{ perspective: "1000px" }}>
+    <MotionTag
+      className={className}
+      style={{ perspective: "1000px" }}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
       {items.map((item, i) => (
-        <span key={i} className="inline-block overflow-hidden">
-          <span className="reveal-item inline-block" style={{ transformOrigin: "bottom" }}>
+        <span key={i} className="inline-block overflow-hidden align-baseline pb-[0.18em] -mb-[0.18em]">
+          <motion.span
+            className="inline-block"
+            style={{ transformOrigin: "bottom" }}
+            variants={child}
+          >
             {item}
-            {splitBy === "word" && i < items.length - 1 ? "\u00A0" : ""}
-          </span>
+            {splitBy === "word" && i < items.length - 1 ? " " : ""}
+          </motion.span>
         </span>
       ))}
-    </Tag>
+    </MotionTag>
   );
 }
