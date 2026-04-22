@@ -14,9 +14,9 @@ interface HomeViewProps {
 
 export default function HomeView({ onNavigate }: HomeViewProps) {
   const isMobile = useIsMobile();
-  const backLayer = useParallaxOffset({ rate: -0.008 });
-  const midLayer = useParallaxOffset({ rate: -0.02 });
-  const frontLayer = useParallaxOffset({ rate: -0.04 });
+  const backLayer = useParallaxOffset({ rate: -0.008, enabled: !isMobile });
+  const midLayer = useParallaxOffset({ rate: -0.02, enabled: !isMobile });
+  const frontLayer = useParallaxOffset({ rate: -0.04, enabled: !isMobile });
 
   return (
     <div className="relative h-[100dvh] w-screen overflow-hidden">

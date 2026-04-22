@@ -89,7 +89,7 @@ function ExperienceRow({ exp, index }: { exp: Experience; index: number }) {
           {exp.tech.map((t) => (
             <span
               key={t}
-              className="rounded-full border border-white/[0.08] bg-white/[0.02] px-2.5 py-1 text-[0.68rem] uppercase tracking-wider text-fg-muted"
+              className="rounded-full border border-white/[0.08] bg-white/[0.04] px-2.5 py-1 text-[0.68rem] uppercase tracking-wider text-fg-muted"
             >
               {t}
             </span>

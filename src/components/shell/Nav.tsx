@@ -29,7 +29,7 @@ export default function Nav({ active, onChange }: NavProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="relative flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.04] px-1.5 py-1.5 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+      <div className="relative flex items-center gap-1 rounded-full border border-white/[0.08] bg-[#0a0a0a]/95 md:bg-white/[0.04] md:backdrop-blur-xl px-1.5 py-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
         {VIEWS.map((v) => {
           const isActive = v.id === active;
           return (

@@ -4,9 +4,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { PERSONAL } from "@/lib/constants";
 import { useParallaxOffset } from "@/hooks/useParallaxOffset";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function ContactView() {
-  const emailParallax = useParallaxOffset({ rate: -0.02 });
+  const isMobile = useIsMobile();
+  const emailParallax = useParallaxOffset({ rate: -0.02, enabled: !isMobile });
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {

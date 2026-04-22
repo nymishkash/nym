@@ -32,6 +32,10 @@ body {
   body {
     overflow: hidden;
   }
+  /* Disable expensive effects on mobile */
+  .grain-overlay {
+    display: none;
+  }
 }
 
 ::selection {

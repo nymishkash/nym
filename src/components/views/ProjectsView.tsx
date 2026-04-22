@@ -107,7 +107,7 @@ function ProjectCard({
         target="_blank"
         rel="noopener noreferrer"
         data-cursor="pointer"
-        className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.03] p-5 backdrop-blur-xl md:p-6"
+        className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.06] bg-[#0a0a0a]/90 p-5 md:bg-white/[0.03] md:backdrop-blur-xl md:p-6"
         style={{
           rotateX,
           rotateY,

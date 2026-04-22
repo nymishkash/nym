@@ -13,11 +13,32 @@ export default function ParallaxBackground({
   accent = "#3730a3",
 }: ParallaxBackgroundProps) {
   const isMobile = useIsMobile();
-  const rateScale = isMobile ? 0.4 : 1;
 
-  const far = useParallaxOffset({ rate: 0.015 * rateScale });
-  const mid = useParallaxOffset({ rate: 0.035 * rateScale });
-  const near = useParallaxOffset({ rate: 0.06 * rateScale });
+  // Mobile: cheap static CSS gradient. No RAF, no blur filters, no springs.
+  if (isMobile) {
+    return (
+      <div
+        aria-hidden
+        className="fixed inset-0 -z-10 overflow-hidden pointer-events-none"
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `radial-gradient(ellipse 80% 60% at 30% 20%, ${accent}22, transparent 60%), radial-gradient(ellipse 60% 50% at 70% 80%, #6b21a822, transparent 60%), radial-gradient(ellipse 40% 40% at 20% 90%, #0e749022, transparent 60%)`,
+            transition: "background 600ms ease",
+          }}
+        />
+      </div>
+    );
+  }
+
+  return <DesktopBackground accent={accent} />;
+}
+
+function DesktopBackground({ accent }: { accent: string }) {
+  const far = useParallaxOffset({ rate: 0.015 });
+  const mid = useParallaxOffset({ rate: 0.035 });
+  const near = useParallaxOffset({ rate: 0.06 });
 
   return (
     <div
