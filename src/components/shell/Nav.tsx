@@ -46,7 +46,7 @@ export default function Nav({ active, onChange }: NavProps) {
                   className="absolute inset-0 -z-10 rounded-full"
                   style={{
                     background:
-                      "linear-gradient(135deg, rgba(99,102,241,0.18), rgba(168,85,247,0.18))",
+                      "linear-gradient(135deg, rgba(55,48,163,0.18), rgba(107,33,168,0.18))",
                     border: "1px solid rgba(255,255,255,0.08)",
                   }}
                   transition={{ type: "spring", stiffness: 380, damping: 32 }}

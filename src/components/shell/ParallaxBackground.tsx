@@ -10,7 +10,7 @@ interface ParallaxBackgroundProps {
 }
 
 export default function ParallaxBackground({
-  accent = "#6366f1",
+  accent = "#3730a3",
 }: ParallaxBackgroundProps) {
   const isMobile = useIsMobile();
   const rateScale = isMobile ? 0.4 : 1;
@@ -26,7 +26,7 @@ export default function ParallaxBackground({
     >
       <DriftingBlob
         size={720}
-        color="#6366f1"
+        color="#3730a3"
         top="-15%"
         left="-10%"
         offset={far}
@@ -34,7 +34,7 @@ export default function ParallaxBackground({
       />
       <DriftingBlob
         size={560}
-        color="#a855f7"
+        color="#6b21a8"
         top="45%"
         left="60%"
         offset={mid}
@@ -42,7 +42,7 @@ export default function ParallaxBackground({
       />
       <DriftingBlob
         size={460}
-        color="#06b6d4"
+        color="#0e7490"
         top="65%"
         left="5%"
         offset={near}

@@ -5,11 +5,11 @@
   --color-bg-card: #0a0a0a;
   --color-fg: #fafafa;
   --color-fg-muted: #71717a;
-  --color-accent-1: #6366f1;
-  --color-accent-2: #a855f7;
-  --color-accent-3: #06b6d4;
-  --color-accent-4: #f59e0b;
-  --color-glow: rgba(99, 102, 241, 0.15);
+  --color-accent-1: #3730a3;
+  --color-accent-2: #6b21a8;
+  --color-accent-3: #0e7490;
+  --color-accent-4: #b45309;
+  --color-glow: rgba(55, 48, 163, 0.15);
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
 }
@@ -35,7 +35,7 @@ body {
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgba(55, 48, 163, 0.3);
   color: #fafafa;
 }
 

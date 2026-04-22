@@ -39,7 +39,7 @@ export const EXPERIENCE: Experience[] = [
       "Built an SSE real-time sync layer over Redis Pub/Sub with reconnect, event dedup, and mutation cooldowns.",
     ],
     tech: ["Node.js", "React", "RabbitMQ", "Redis", "PostgreSQL", "GPT-4", "Pinecone", "Microsoft Graph"],
-    accent: "#6366f1",
+    accent: "#3730a3",
   },
   {
     company: "Dukaan",
@@ -55,7 +55,7 @@ export const EXPERIENCE: Experience[] = [
       "Replaced WebSockets with SSE, improving streaming reliability and concurrent-session scalability.",
     ],
     tech: ["Next.js", "Express", "OpenAI", "SSE", "TypeScript"],
-    accent: "#a855f7",
+    accent: "#6b21a8",
   },
   {
     company: "Dukaan",
@@ -67,7 +67,7 @@ export const EXPERIENCE: Experience[] = [
       "Shipped production features across Next.js, Express, and OpenAI APIs; chatbot work fed directly into the full-time role.",
     ],
     tech: ["Next.js", "Express", "OpenAI"],
-    accent: "#a855f7",
+    accent: "#6b21a8",
   },
 ];
 
@@ -90,7 +90,7 @@ export const PROJECTS: Project[] = [
       "An RL environment where agents learn to translate plain-English descriptions into working regex. Built for the Meta × Scaler OpenEnv hackathon.",
     tech: ["Python", "PyTorch", "Docker", "RL"],
     github: "https://github.com/nymishkash/regex-builder-openenv",
-    accent: "#6366f1",
+    accent: "#3730a3",
     featured: true,
   },
   {
@@ -100,7 +100,7 @@ export const PROJECTS: Project[] = [
       "AI payroll assistant handling HR workflows - employees, leave, wages - via chat and voice. Node.js + Next.js + OpenAI.",
     tech: ["Node.js", "Next.js", "OpenAI", "TypeScript"],
     github: "https://github.com/nymishkash/wagewizard-frontend",
-    accent: "#a855f7",
+    accent: "#6b21a8",
     featured: true,
   },
   {
@@ -110,7 +110,7 @@ export const PROJECTS: Project[] = [
       "Secrets-manager platform with AES-256-GCM encryption, row-level security, and audit logs. Ships with a zero-dep TypeScript SDK and CLI.",
     tech: ["Next.js", "Supabase", "TypeScript"],
     github: "https://github.com/nymishkash/smartcloud",
-    accent: "#06b6d4",
+    accent: "#0e7490",
   },
   {
     name: "renderground",
@@ -119,7 +119,7 @@ export const PROJECTS: Project[] = [
       "React canvas app for shape composition - rectangles, text, snap grid - with a Node/Express backend that persists and exports canvases as HTML.",
     tech: ["React", "Node.js", "Express"],
     github: "https://github.com/nymishkash/renderground-frontend",
-    accent: "#f59e0b",
+    accent: "#b45309",
   },
   {
     name: "bot99",
@@ -128,7 +128,7 @@ export const PROJECTS: Project[] = [
       "Hotel-booking chatbot on top of Google Gemini - turns natural-language requests into structured room reservations. Express + React.",
     tech: ["Express", "React", "Gemini"],
     github: "https://github.com/nymishkash/bot99",
-    accent: "#ec4899",
+    accent: "#9d174d",
   },
   {
     name: "python-web-scraper",
@@ -137,7 +137,7 @@ export const PROJECTS: Project[] = [
       "Python scraper wrapped in a security-first CI and Kubernetes CD pipeline. SCA, SAST, DAST, and promotion-gated delivery end-to-end.",
     tech: ["Python", "Docker", "Kubernetes"],
     github: "https://github.com/nymishkash/python-web-scraper",
-    accent: "#10b981",
+    accent: "#065f46",
   },
 ];
 

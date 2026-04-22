@@ -7,10 +7,10 @@ export interface ViewMeta {
 }
 
 export const VIEWS: ViewMeta[] = [
-  { id: "home", label: "Home", accent: "#6366f1" },
-  { id: "work", label: "Work", accent: "#a855f7" },
-  { id: "projects", label: "Projects", accent: "#06b6d4" },
-  { id: "contact", label: "Contact", accent: "#f59e0b" },
+  { id: "home", label: "Home", accent: "#3730a3" },
+  { id: "work", label: "Work", accent: "#6b21a8" },
+  { id: "projects", label: "Projects", accent: "#0e7490" },
+  { id: "contact", label: "Contact", accent: "#b45309" },
 ];
 
 export function getViewMeta(id: ViewId): ViewMeta {
