@@ -4,30 +4,30 @@ import GrainOverlay from "@/components/ui/GrainOverlay";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nymish Kashivishwanath | Full-Stack Engineer",
+  title: "nymish kashivishwanath",
   description:
-    "Full-stack engineer building AI-powered products and distributed systems. Currently at Wing Assistant (M32 Labs).",
+    "Building AI agents - and the workflows that run them at scale.",
   keywords: [
     "Nymish",
     "Kashivishwanath",
     "Full-Stack Engineer",
     "Software Engineer",
-    "AI",
+    "AI Agents",
     "Distributed Systems",
     "React",
     "Next.js",
     "Node.js",
   ],
   openGraph: {
-    title: "Nymish Kashivishwanath | Full-Stack Engineer",
-    description: "Building the future with AI and distributed systems.",
+    title: "nymish kashivishwanath",
+    description: "Building AI agents - and the workflows that run them at scale.",
     type: "website",
-    url: "https://nymish.xyz",
+    url: "https://nymi.sh",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nymish Kashivishwanath | Full-Stack Engineer",
-    description: "Building the future with AI and distributed systems.",
+    title: "nymish kashivishwanath",
+    description: "Building AI agents - and the workflows that run them at scale.",
   },
 };
 
