@@ -1,18 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { PERSONAL } from "@/lib/constants";
 import PerspectiveLayer from "@/components/shell/PerspectiveLayer";
 import TextReveal from "@/components/ui/TextReveal";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { useParallaxOffset } from "@/hooks/useParallaxOffset";
-import type { ViewId } from "@/lib/views";
 
-interface HomeViewProps {
-  onNavigate: (id: ViewId) => void;
-}
-
-export default function HomeView({ onNavigate }: HomeViewProps) {
+export default function HomeView() {
   const isMobile = useIsMobile();
   const backLayer = useParallaxOffset({ rate: -0.008, enabled: !isMobile });
   const midLayer = useParallaxOffset({ rate: -0.02, enabled: !isMobile });
@@ -94,15 +90,8 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
               </div>
 
               <div className="flex flex-wrap gap-3 md:justify-end">
-                <HomeCta
-                  label="View work →"
-                  onClick={() => onNavigate("work")}
-                  primary
-                />
-                <HomeCta
-                  label="Get in touch"
-                  onClick={() => onNavigate("contact")}
-                />
+                <HomeCta label="View work →" href="/work" primary />
+                <HomeCta label="Get in touch" href="/contact" />
               </div>
             </motion.div>
           </div>
@@ -114,27 +103,30 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
 
 function HomeCta({
   label,
-  onClick,
+  href,
   primary = false,
 }: {
   label: string;
-  onClick: () => void;
+  href: string;
   primary?: boolean;
 }) {
   return (
-    <motion.button
-      onClick={onClick}
-      data-cursor="pointer"
+    <motion.div
       whileHover={{ y: -2 }}
       whileTap={{ y: 0, scale: 0.98 }}
       transition={{ type: "spring", stiffness: 400, damping: 24 }}
-      className={`rounded-full px-5 py-2.5 text-sm tracking-wide transition-colors ${
-        primary
-          ? "bg-fg text-bg hover:bg-fg/90"
-          : "border border-white/10 bg-white/[0.03] text-fg hover:border-white/25"
-      }`}
     >
-      {label}
-    </motion.button>
+      <Link
+        href={href}
+        data-cursor="pointer"
+        className={`inline-block rounded-full px-5 py-2.5 text-sm tracking-wide transition-colors ${
+          primary
+            ? "bg-fg text-bg hover:bg-fg/90"
+            : "border border-white/10 bg-white/[0.03] text-fg hover:border-white/25"
+        }`}
+      >
+        {label}
+      </Link>
+    </motion.div>
   );
 }

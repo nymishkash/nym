@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, inter } from "@/lib/fonts";
 import GrainOverlay from "@/components/ui/GrainOverlay";
+import Shell from "@/components/shell/Shell";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "nymish kashivishwanath",
-  description:
-    "Building AI agents - and the workflows that run them at scale.",
+  metadataBase: new URL("https://nymi.sh"),
+  title: {
+    default: "Nymish Kashivishwanath",
+    template: "%s · Nymish Kashivishwanath",
+  },
+  description: "Building AI agents - and the workflows that run them at scale.",
   keywords: [
     "Nymish",
     "Kashivishwanath",
-    "Full-Stack Engineer",
+    "Forward Deployed Engineer",
     "Software Engineer",
     "AI Agents",
     "Distributed Systems",
@@ -18,16 +22,39 @@ export const metadata: Metadata = {
     "Next.js",
     "Node.js",
   ],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "nymish kashivishwanath",
+    title: "Nymish Kashivishwanath",
     description: "Building AI agents - and the workflows that run them at scale.",
     type: "website",
     url: "https://nymi.sh",
   },
   twitter: {
     card: "summary_large_image",
-    title: "nymish kashivishwanath",
+    title: "Nymish Kashivishwanath",
     description: "Building AI agents - and the workflows that run them at scale.",
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Nymish Kashivishwanath",
+  url: "https://nymi.sh",
+  jobTitle: "Forward Deployed Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "AI Studio",
+    url: "https://aistudio.ae",
+  },
+  sameAs: [
+    "https://github.com/nymishkash",
+    "https://linkedin.com/in/nymish",
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bengaluru",
+    addressCountry: "IN",
   },
 };
 
@@ -41,7 +68,11 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} antialiased bg-bg text-fg`}
       >
-        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <Shell>{children}</Shell>
         <GrainOverlay />
       </body>
     </html>

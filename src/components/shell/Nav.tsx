@@ -1,26 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useCallback, useRef } from "react";
-import { VIEWS, type ViewId } from "@/lib/views";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { VIEWS, viewIdFromPathname } from "@/lib/views";
 
-interface NavProps {
-  active: ViewId;
-  onChange: (id: ViewId) => void;
-}
-
-export default function Nav({ active, onChange }: NavProps) {
-  const lastClickRef = useRef(0);
-
-  const handleSelect = useCallback(
-    (id: ViewId) => {
-      const now = performance.now();
-      if (now - lastClickRef.current < 120) return;
-      lastClickRef.current = now;
-      if (id !== active) onChange(id);
-    },
-    [active, onChange]
-  );
+export default function Nav() {
+  const pathname = usePathname();
+  const active = viewIdFromPathname(pathname);
 
   return (
     <motion.nav
@@ -33,9 +20,9 @@ export default function Nav({ active, onChange }: NavProps) {
         {VIEWS.map((v) => {
           const isActive = v.id === active;
           return (
-            <button
+            <Link
               key={v.id}
-              onClick={() => handleSelect(v.id)}
+              href={v.href}
               data-cursor="pointer"
               className="relative z-10 rounded-full px-4 py-1.5 text-xs font-medium uppercase tracking-widest transition-colors"
               style={{ color: isActive ? "#fafafa" : "#71717a" }}
@@ -53,7 +40,7 @@ export default function Nav({ active, onChange }: NavProps) {
                 />
               )}
               {v.label}
-            </button>
+            </Link>
           );
         })}
       </div>
