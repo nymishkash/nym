@@ -1,13 +1,13 @@
 export const PERSONAL = {
   name: "Nymish",
   fullName: "Nymish Kashivishwanath",
-  tagline: "Full-Stack Engineer",
+  tagline: "Forward Deployed Engineer",
   subtitle: "Building AI agents - and the workflows that run them at scale.",
   email: "reachnymish@gmail.com",
   location: "Bengaluru, India",
   github: "https://github.com/nymishkash",
   linkedin: "https://linkedin.com/in/nymish",
-  website: "nymish.xyz",
+  website: "nymi.sh",
 };
 
 export interface Experience {
@@ -24,14 +24,28 @@ export interface Experience {
 
 export const EXPERIENCE: Experience[] = [
   {
+    company: "AI Studio",
+    role: "Forward Deployed Engineer",
+    period: "Jun 2026 – Present",
+    location: "Bengaluru, India",
+    type: "Remote",
+    bullets: [
+      "Forward-deployed engineer embedding with enterprise clients to scope, build, and ship custom AI-agent solutions end-to-end — from discovery to production.",
+      "Build production LLM systems (RAG, function-calling agents, workflow automation) integrated directly into client stacks and data sources.",
+      "Own delivery end-to-end: translate ambiguous business requirements into working systems and iterate on-site with stakeholders.",
+    ],
+    tech: ["TypeScript", "Node.js", "React", "LLMs", "RAG", "Function Calling"],
+    accent: "#047857",
+  },
+  {
     company: "Wing Assistant",
     product: "M32 Labs",
     role: "Software Engineer",
-    period: "May 2025 – Present",
+    period: "May 2025 – Jun 2026",
     location: "Berkeley, CA",
     type: "Remote",
     bullets: [
-      "Engineering hire #3 on an AI executive-assistant product; shipping full-stack features end-to-end on Node.js + React.",
+      "Engineering hire #3 on an AI executive-assistant product; shipped full-stack features end-to-end on Node.js + React.",
       "Built a distributed message-queue ingestion pipeline (RabbitMQ quorum queues, publisher confirms, Redis idempotent dedupe, DLQ + retries) with zero dropped events under load.",
       "Architected a multi-tier cache (in-memory → Redis → source API) with Redis Pub/Sub cross-instance invalidation, cutting p95 read latency from >10s to <500ms.",
       "Built the AI generation pipeline: GPT-4 drafts conditioned on user writing style, RAG over Pinecone, and CRM/calendar context injection; migrated LLM provider for ~20x cost reduction.",
