@@ -7,7 +7,7 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "build:resume": "latexmk -pdf -interaction=nonstopmode -halt-on-error -output-directory=resume/build resume/resume.tex && cp resume/build/resume.pdf public/resume.pdf"
+    "build:resume": "docker run --rm -v \"$PWD\":/data -w /data texlive/texlive:latest latexmk -pdf -interaction=nonstopmode -halt-on-error -output-directory=resume/build resume/resume.tex && cp resume/build/resume.pdf public/resume.pdf"
   },
   "dependencies": {
     "clsx": "^2.1.1",
