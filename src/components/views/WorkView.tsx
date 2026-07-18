@@ -27,7 +27,7 @@ export default function WorkView() {
           </motion.a>
         </header>
 
-        <div className="flex flex-1 min-h-0 flex-col gap-5 overflow-y-auto pr-1">
+        <div className="flex flex-1 min-h-0 flex-col gap-7 overflow-y-auto pr-1">
           {EXPERIENCE.map((exp, i) => (
             <ExperienceRow key={`${exp.company}-${i}`} exp={exp} index={i} />
           ))}
@@ -47,30 +47,28 @@ function ExperienceRow({ exp, index }: { exp: Experience; index: number }) {
         delay: 0.1 + index * 0.08,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="group relative border-t border-white/[0.08] pt-5"
+      className="group relative border-l border-white/[0.08] pl-5 transition-colors duration-500 hover:border-white/20 md:pl-6"
     >
-      <div
+      <span
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
+        className="pointer-events-none absolute -left-px top-1.5 h-0 w-px origin-top transition-all duration-500 group-hover:h-[calc(100%-0.75rem)]"
         style={{ background: exp.accent }}
       />
-      <div
+      <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(600px circle at 0% 0%, ${exp.accent}10, transparent 55%)`,
-        }}
+        className="absolute -left-[3px] top-1.5 h-1.5 w-1.5 rounded-full ring-4 ring-bg transition-transform duration-500 group-hover:scale-125"
+        style={{ background: exp.accent }}
       />
 
       <div className="relative flex flex-col gap-2">
         <div className="flex items-baseline justify-between gap-3">
           <span
-            className="text-xs uppercase tracking-[0.25em]"
+            className="text-[0.7rem] uppercase tracking-[0.25em]"
             style={{ color: exp.accent }}
           >
             {exp.period}
           </span>
-          <span className="hidden text-xs uppercase tracking-[0.25em] text-fg-muted md:inline">
+          <span className="hidden text-[0.7rem] uppercase tracking-[0.25em] text-fg-muted md:inline">
             {exp.type}
           </span>
         </div>
@@ -79,22 +77,29 @@ function ExperienceRow({ exp, index }: { exp: Experience; index: number }) {
           {exp.role}
         </h3>
 
-        <p className="text-sm text-fg-muted">
-          {exp.company}
-          {exp.product && ` · ${exp.product}`} · {exp.location}
-          <span className="md:hidden"> · {exp.type}</span>
+        <p className="text-sm">
+          <span className="text-fg/90">{exp.company}</span>
+          {exp.product && <span className="text-fg-muted"> · {exp.product}</span>}
+          <span className="text-fg-muted"> · {exp.location}</span>
+          <span className="text-fg-muted md:hidden"> · {exp.type}</span>
         </p>
 
-        <div className="mt-2 flex flex-wrap gap-1.5">
-          {exp.tech.map((t) => (
-            <span
-              key={t}
-              className="rounded-full border border-white/[0.08] bg-white/[0.04] px-2.5 py-1 text-[0.68rem] uppercase tracking-wider text-fg-muted"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
+        {exp.bullets.length > 0 && (
+          <ul className="mt-2.5 flex flex-col gap-2">
+            {exp.bullets.map((bullet, b) => (
+              <li
+                key={b}
+                className="flex gap-3 text-[0.82rem] leading-relaxed text-fg-muted"
+              >
+                <span
+                  aria-hidden
+                  className="mt-[0.5rem] h-1 w-1 flex-none rounded-full bg-fg-muted/50"
+                />
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </motion.div>
   );

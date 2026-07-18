@@ -2,20 +2,25 @@
 % Resume in Latex
 %------------------------
 
-\documentclass[letterpaper,10pt]{article}
+\documentclass[letterpaper,11pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage[default,scale=0.95]{lato}
-\renewcommand*\familydefault{\sfdefault}
+\usepackage{fontawesome5}
+
+% --- Font: keep exactly ONE of the following active ---
+% \usepackage[default]{sourcesanspro} % modern humanist sans
+\usepackage{XCharter}                 % warm, distinctive serif (active)
+% \usepackage[sfdefault]{FiraSans}    % crisp geometric sans
+% \usepackage[sfdefault]{roboto}      % Roboto sans
+% \usepackage[default,scale=0.95]{lato}\renewcommand*\familydefault{\sfdefault}  % original Lato
 \usepackage[T1]{fontenc}
 
 \pagestyle{fancy}
@@ -48,6 +53,18 @@
     \textit{#3} & {\color{dark-grey}\small #4}
   \end{tabular*}\vspace{-4pt}
 }
+\newcommand{\resumeCompany}[2]{
+  \vspace{-1pt}\item
+  \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & {\color{dark-grey}\small #2}
+  \end{tabular*}\vspace{-4pt}
+}
+\newcommand{\resumeRole}[2]{
+  \item
+  \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    \textit{#1} & {\color{dark-grey}\small #2}
+  \end{tabular*}\vspace{-6pt}
+}
 \newcommand{\resumeProjectHeading}[2]{
   \item
   \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
@@ -68,10 +85,10 @@
 \begin{center}
     \textbf{\Huge Nymish Kashivishwanath} \\ \vspace{5pt}
     \small
-    \href{mailto:reachnymish@gmail.com}{reachnymish@gmail.com} \hspace{6pt} $|$
-    \href{https://linkedin.com/in/nymish}{linkedin.com/in/nymish} \hspace{6pt} $|$
-    \href{https://github.com/nymishkash}{github.com/nymishkash} \hspace{6pt} $|$
-    Bengaluru, India
+    \faEnvelope\ \href{mailto:reachnymish@gmail.com}{\underline{reachnymish@gmail.com}} \hspace{6pt} $|$
+    \faLinkedin\ \href{https://linkedin.com/in/nymish}{\underline{linkedin.com/in/nymish}} \hspace{6pt} $|$
+    \faGithub\ \href{https://github.com/nymishkash}{\underline{github.com/nymishkash}} \hspace{6pt} $|$
+    \faMapMarker*\ Bengaluru, India
 \end{center}
 
 %-----------EXPERIENCE-----------
@@ -79,12 +96,10 @@
 \resumeSubHeadingListStart
 
 \resumeSubheading
-{AI Studio}{Jun 2026 -- Present}
-{Forward Deployed Engineer}{Bengaluru, India (Remote)}
+{AiStudio}{Jun 2026 -- Present}
+{Forward Deployed Engineer}{Dubai, UAE (Remote)}
 \resumeItemListStart
-\resumeItem{Forward-deployed engineer embedding with enterprise clients to scope, build, and ship custom \textbf{AI-agent solutions} end-to-end --- from discovery to production deployment.}
-\resumeItem{Build production \textbf{LLM systems} (RAG, function-calling agents, workflow automation) integrated directly into client stacks and data sources.}
-\resumeItem{Own delivery end-to-end: translate ambiguous business requirements into working systems and iterate on-site with stakeholders.}
+\resumeItem{Work directly with private-equity funds and their portfolio companies --- building internal tools, modernising legacy systems, and streamlining the workflows they run day to day.}
 \resumeItemListEnd
 
 \resumeSubheading
@@ -95,50 +110,21 @@
 \resumeItem{Built a \textbf{distributed message-queue ingestion pipeline} (RabbitMQ quorum queues, publisher confirms, Redis idempotent dedupe, DLQ + retries) consuming Gmail and Outlook push notifications with zero dropped events under load.}
 \resumeItem{Architected a \textbf{multi-tier cache} (in-memory $\rightarrow$ Redis $\rightarrow$ source API) with Redis Pub/Sub cross-instance invalidation and circuit breakers, cutting p95 read latency from \textbf{>10s to <500ms}.}
 \resumeItem{Built the \textbf{queue consumer layer}: a worker fan-out running AI draft generation, classification, task creation, and contact extraction concurrently per event, with shared context to eliminate N+1 queries.}
-\resumeItem{Built the \textbf{AI generation pipeline}: GPT-4 drafts conditioned on user writing style, RAG over a Pinecone knowledge base, and CRM/calendar context injection; migrated the LLM provider live for \textbf{\textasciitilde20x cost reduction}.}
 \resumeItem{Delivered full \textbf{Microsoft Graph parity} (OAuth, webhook subscriptions, refresh-token worker) for an originally Google-only product, unblocking the enterprise segment.}
 \resumeItem{Built an \textbf{SSE real-time sync layer} over Redis Pub/Sub with reconnect, event dedup, and mutation cooldowns to suppress stale upstream events during eventual-consistency windows.}
 \resumeItemListEnd
 
-\resumeSubheading
-{Dukaan}{Feb 2025 -- Apr 2025}
-{Full Stack Engineer}{Bengaluru, India (Onsite)}
+\resumeCompany{Dukaan}{Bengaluru, India (Onsite)}
+\resumeRole{Full Stack Engineer}{Feb 2025 -- Apr 2025}
 \resumeItemListStart
 \resumeItem{Core team member (6 engineers) on \href{https://bot9.ai}{\textbf{bot9.ai}}, a GenAI customer-support suite; led engineering in the final months and independently owned enterprise client relationships end-to-end.}
 \resumeItem{Shipped GenAI automation flows that resolved \textbf{80--85\%} of inbound support queries with no human handoff.}
 \resumeItem{Cut LLM infrastructure cost \textbf{20x} by migrating providers live with zero downtime and no quality regression.}
 \resumeItem{Replaced WebSockets with \textbf{SSE}, improving streaming reliability and concurrent-session scalability for live chat.}
 \resumeItemListEnd
-
-\resumeSubheading
-{Dukaan}{Aug 2024 -- Jan 2025}
-{SDE Intern}{Bengaluru, India (Onsite)}
+\resumeRole{SDE Intern}{Aug 2024 -- Jan 2025}
 \resumeItemListStart
 \resumeItem{Shipped production features across Next.js, Express, and OpenAI APIs; chatbot work fed directly into the full-time role.}
-\resumeItemListEnd
-
-\resumeSubHeadingListEnd
-
-%-----------SKILLS-----------
-\section{SKILLS}
-\begin{itemize}[leftmargin=0in,label={}]
-\small{\item{
-\textbf{Languages:} TypeScript, JavaScript, Python, SQL \\
-\textbf{Backend:} Node.js, Express, RabbitMQ, Redis (Pub/Sub, Lua), PostgreSQL, BullMQ, Docker, PM2 \\
-\textbf{Frontend:} React 19, TanStack Query, Zustand, Tailwind CSS, Vite \\
-\textbf{AI / Data:} OpenAI (GPT-4 / 4o), Pinecone, RAG, function calling \\
-\textbf{Integrations:} Gmail API, Google Cloud Pub/Sub, Microsoft Graph, OAuth2, HubSpot, Pipedrive, Salesforce, AWS S3
-}}
-\end{itemize}
-
-%-----------PROJECTS-----------
-\section{PROJECTS}
-\resumeSubHeadingListStart
-
-\resumeProjectHeading
-{\textbf{\href{https://github.com/nymishkash/wagewizard}{WageWizard Payroll Assistant}}}{}
-\resumeItemListStart
-\resumeItem{AI payroll assistant on Node.js + Next.js handling HR workflows (employees, leave, wages) via chat and voice.}
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -152,8 +138,8 @@
 {Integrated BS \& MS in Computer Science}{India}
 
 \resumeSubheading
-{Birla Institute of Technology and Science, Pilani}{2023 -- 2026}
-{Bachelor of Science in Computer Science}{India}
+{Birla Institute of Technology and Science, Pilani}{2023 -- 2027}
+{Bachelor of Science (Hons.) in Computer Science}{India}
 
 \resumeSubHeadingListEnd
 

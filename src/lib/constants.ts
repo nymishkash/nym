@@ -24,17 +24,15 @@ export interface Experience {
 
 export const EXPERIENCE: Experience[] = [
   {
-    company: "AI Studio",
+    company: "AiStudio",
     role: "Forward Deployed Engineer",
     period: "Jun 2026 – Present",
-    location: "Bengaluru, India",
+    location: "Dubai, UAE",
     type: "Remote",
     bullets: [
-      "Forward-deployed engineer embedding with enterprise clients to scope, build, and ship custom AI-agent solutions end-to-end — from discovery to production.",
-      "Build production LLM systems (RAG, function-calling agents, workflow automation) integrated directly into client stacks and data sources.",
-      "Own delivery end-to-end: translate ambiguous business requirements into working systems and iterate on-site with stakeholders.",
+      "Work directly with private-equity funds and their portfolio companies — building internal tools, modernizing legacy systems, and streamlining the workflows they run day to day.",
     ],
-    tech: ["TypeScript", "Node.js", "React", "LLMs", "RAG", "Function Calling"],
+    tech: ["TypeScript", "Node.js", "React", "LLMs", "RAG", "Private Markets"],
     accent: "#047857",
   },
   {
@@ -58,8 +56,8 @@ export const EXPERIENCE: Experience[] = [
   {
     company: "Dukaan",
     product: "bot9.ai",
-    role: "Full Stack Engineer",
-    period: "Feb 2025 – Apr 2025",
+    role: "Full Stack Engineer (from SDE Intern)",
+    period: "Aug 2024 – Apr 2025",
     location: "Bengaluru, India",
     type: "Onsite",
     bullets: [
@@ -69,18 +67,6 @@ export const EXPERIENCE: Experience[] = [
       "Replaced WebSockets with SSE, improving streaming reliability and concurrent-session scalability.",
     ],
     tech: ["Next.js", "Express", "OpenAI", "SSE", "TypeScript"],
-    accent: "#6b21a8",
-  },
-  {
-    company: "Dukaan",
-    role: "SDE Intern",
-    period: "Aug 2024 – Jan 2025",
-    location: "Bengaluru, India",
-    type: "Onsite",
-    bullets: [
-      "Shipped production features across Next.js, Express, and OpenAI APIs; chatbot work fed directly into the full-time role.",
-    ],
-    tech: ["Next.js", "Express", "OpenAI"],
     accent: "#6b21a8",
   },
 ];

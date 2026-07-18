@@ -18,13 +18,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Tectonic
-        uses: wtfjoke/setup-tectonic@v3
+      - name: Compile resume (pdflatex via TeXLive)
+        uses: xu-cheng/latex-action@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          root_file: resume.tex
+          working_directory: resume
 
-      - name: Compile resume
-        run: tectonic resume/resume.tex --outdir public
+      - name: Move PDF into public/
+        run: mv resume/resume.pdf public/resume.pdf
 
       - name: Commit rebuilt PDF
         run: |

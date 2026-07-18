@@ -44,7 +44,7 @@ const personJsonLd = {
   jobTitle: "Forward Deployed Engineer",
   worksFor: {
     "@type": "Organization",
-    name: "AI Studio",
+    name: "AiStudio",
     url: "https://aistudio.ae",
   },
   sameAs: [
